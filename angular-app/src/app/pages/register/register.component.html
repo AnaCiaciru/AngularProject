@@ -1,0 +1,46 @@
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+      <h3>Welcome</h3>
+      <p>We are so happy to have you here!</p>
+      <input type="submit" name="" value="Login" [routerLink]="['/login']" /><br />
+    </div>
+    <div class="col-md-9 register-right">
+      <div class="tab-content" id="myTabContent">
+
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h3 class="register-heading">Get In Now</h3>
+          <div class="row register-form">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name *" value="" [(ngModel)]="user.name" />
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email *" value=""
+                [class]="
+                  validateEmail(user.email) ? 'form-control' : 'form-control is-invalid' "
+                [ngClass]="validateEmail(user.email) ? '' : 'is-invalid'"
+                [(ngModel)]="user.email" />
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password *" value=""
+                [(ngModel)]="user.password"/>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Confirm Password *" value=""
+                [(ngModel)]="user.confirm_password" />
+              </div>
+              <button class="btn btn-primary btnRegister" [disabled]="isValid()" (click)="register()">
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
